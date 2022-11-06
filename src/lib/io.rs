@@ -1,12 +1,15 @@
-use std::env;
 use std::fs;
 use yaml_rust as yaml;
+use yaml_rust::ScanError;
 
-pub fn get_config(config_file: &str) -> Vec<yaml::Yaml> {
+pub fn get_config(config_file: &str, index: Option<i32>) -> Result<yaml::Yaml,&str> {
     let contents = fs::read_to_string(config_file)
         .expect("Should have been able to read the file");
-    let config = yaml::YamlLoader::load_from_str(&contents).unwrap();
-    return config;
+    let result = yaml::YamlLoader::load_from_str(&contents);
+    match result {
+        Ok(y) => Ok(y[index.unwrap_or(0) as usize].clone()),
+        Err(e) => return Err("Error parsing yaml: {e:?}")
+    }
 }
 
 pub fn get_token(token_file: &str) -> String {
