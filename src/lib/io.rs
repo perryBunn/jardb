@@ -1,6 +1,5 @@
 use std::fs;
 use yaml_rust as yaml;
-use yaml_rust::ScanError;
 
 pub fn get_config(config_file: &str, index: Option<i32>) -> Result<yaml::Yaml,&str> {
     let contents = fs::read_to_string(config_file)

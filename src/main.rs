@@ -46,14 +46,32 @@ async fn main() {
     };
     // Get token
     let token = io::get_token(config["token_file"].as_str().unwrap());
+
+    // Set intents
+    let intents = serenity::GatewayIntents::GUILDS
+                  | serenity::GatewayIntents::GUILD_MEMBERS
+                  | serenity::GatewayIntents::GUILD_BANS
+                  | serenity::GatewayIntents::GUILD_EMOJIS_AND_STICKERS
+                  | serenity::GatewayIntents::GUILD_INVITES
+                  | serenity::GatewayIntents::GUILD_PRESENCES
+                  | serenity::GatewayIntents::GUILD_MESSAGES
+                  | serenity::GatewayIntents::GUILD_MESSAGE_REACTIONS
+                  | serenity::GatewayIntents::GUILD_MESSAGE_TYPING
+                  | serenity::GatewayIntents::MESSAGE_CONTENT;
     // Initiate discord bot.
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
+            prefix_options: poise::PrefixFrameworkOptions {
+                prefix: Some("$".into()),
+                edit_tracker: Some(poise::EditTracker::for_timespan(std::time::Duration::from_secs(config["listen_timeout"].as_i64().unwrap() as u64))),
+                case_insensitive_commands: true,
+                ..Default::default()
+            },
             commands: vec![age(), register()],
             ..Default::default()
         })
         .token(token)
-        .intents(serenity::GatewayIntents::non_privileged())
+        .intents(intents)
         .user_data_setup(move |_ctx, _ready, _framework| Box::pin(async move { Ok(Data {}) }));
 
     framework.run().await.unwrap();

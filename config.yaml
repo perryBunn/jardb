@@ -1,2 +1,3 @@
 logging_level: !!str DEBUG
-token_file:    !!str token
+token_file:    !!str token_dev
+listen_timeout: 3600

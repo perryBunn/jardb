@@ -22,11 +22,11 @@ TODO
 # References
 Just some miscellaneous bots written in Rust for when I need a little help.
 
-## [scripty](https://github.com/tazz4843/scripty)
-Scripty is a discord bot written in Rust that transcribes audio into text. However this bot has been discontinued. Speech to Text is a feature I would like to add so that it could possibly act as secretary for [Auburn Esports](https://aub.ie/esports).
+## Scripty
+[scripty](https://github.com/tazz4843/scripty) is a discord bot written in Rust that transcribes audio into text. However this bot has been discontinued. Speech to Text is a feature I would like to add so that it could possibly act as secretary for [Auburn Esports](https://aub.ie/esports).
 
-## [Taliyah](https://github.com/evelynmarie/Taliyah)
-Taliyah is kitchen sink bot written in Rust. It does a lot of things and is good refenrece for some of the commands I would like to implement.
+## Taliyah
+[Taliyah](https://github.com/evelynmarie/Taliyah) is kitchen sink bot written in Rust. It does a lot of things and is good refenrece for some of the commands I would like to implement.
 
 # License
 MIT License
