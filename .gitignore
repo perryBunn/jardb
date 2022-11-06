@@ -1,0 +1,14 @@
+# Directories
+.obsidian/workspace/*
+target/
+
+# Files
+.idea/*.iml
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf*
+Cargo.lock
+token
+
+.trash
+.DS_Store
