@@ -15,7 +15,9 @@ TODO
 # Resources
 - [Clap docs](https://docs.rs/clap/4.0.19/clap/)
 - [Poise docs](https://docs.rs/poise/0.4.1/poise/index.html)
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
 - [Rust docs](https://doc.rust-lang.org/book/)
+- [Rust Modules Explained](https://www.sheshbabu.com/posts/rust-module-system/)
 - [Serenity docs](https://docs.rs/serenity/0.11.5/serenity/index.html)
 - [YAML docs](https://yaml.org/spec/1.2.2/)
 

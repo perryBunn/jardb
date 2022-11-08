@@ -1,3 +1,1 @@
-logging_level: !!str DEBUG
-token_file:    !!str token_dev
-listen_timeout: 3600
+/home/perry/.config/jardb/config.yaml
