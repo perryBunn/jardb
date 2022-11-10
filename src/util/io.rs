@@ -1,7 +1,7 @@
 use std::fs;
-use clap::builder::Str;
 use yaml_rust as yaml;
 use toml;
+use crate::Config;
 
 fn get_file_content(file: &str) -> Result<String, &str> {
     let contents = fs::read_to_string(file)
@@ -15,9 +15,9 @@ pub fn get_config_from_yaml(config_file: &str, index: Option<i32>) -> Result<yam
     Ok(result[index.unwrap_or(0) as usize].clone())
 }
 
-pub fn get_config_from_toml(config_file: &str) -> Result<String, &str>{
+pub fn get_config_from_toml(config_file: &str,) -> Result<Config, &str>{
     let contents = get_file_content(config_file).unwrap();
-    let result = toml::from_str(contents.as_str()).unwrap();
+    let result: Config = toml::from_str(contents.as_str()).unwrap();
     Ok(result)
 }
 

@@ -1,0 +1,8 @@
+logging_level = "DEBUG"
+token_file = "token"
+
+[bot]
+prefix = "$"
+
+[bot.message]
+listen_timeout = 3600
