@@ -9,7 +9,7 @@ This bot serves to be a project for me to learn Rust. For no other purpose than 
 - [ ] Stenographer - Speach to Text
 #### Fun
 - [ ] AddReact - For some regex string, react
-- [ ] Coin
+- [x] Coin
 - [ ] Poll
 - [ ] Roll
 - [ ] XKCD

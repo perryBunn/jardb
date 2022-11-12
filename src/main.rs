@@ -7,6 +7,7 @@ use clap::Parser;
 use poise::serenity_prelude as serenity;
 use crate::commands::{
     admin::{register::*},
+    fun::{coin::*, roll::*},
     info::{age::*}
 };
 use crate::util::{
@@ -49,14 +50,18 @@ async fn main() {
                   | serenity::GatewayIntents::GUILD_MESSAGE_TYPING
                   | serenity::GatewayIntents::MESSAGE_CONTENT;
 
-    let command_list = vec![age(), register()];
-    let timeout = std::time::Duration::from_secs(config.listen_timeout as u64);
+    let command_list = vec![
+        register(), // Admin
+        coin(), roll(), // Fun
+        age(), // Info
+    ];
+    let timeout = std::time::Duration::from_secs(config.bot.listen_timeout as u64);
 
     // Initiate discord bot.
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
             prefix_options: poise::PrefixFrameworkOptions {
-                prefix: Some(config.prefix),
+                prefix: Some(config.bot.prefix),
                 edit_tracker: Some(poise::EditTracker::for_timespan(timeout)),
                 case_insensitive_commands: true,
                 ..Default::default()
