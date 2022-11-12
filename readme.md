@@ -6,13 +6,14 @@ This bot serves to be a project for me to learn Rust. For no other purpose than 
 #### Admin
 - [ ] Record - Records audio
 - [x] Register - Adds slash commands
-- [ ] Stenographer - Speach to Text
+- [ ] Stenographer - Speech to Text
 #### Fun
 - [ ] AddReact - For some regex string, react
 - [x] Coin
+- [x] Ping
 - [ ] Poll
-- [ ] Roll
-- [ ] XKCD
+- [x] Roll
+- [x] XKCD
 #### Info
 - [ ] About 
 - [x] Age -> User
@@ -41,6 +42,11 @@ This bot serves to be a project for me to learn Rust. For no other purpose than 
 - [ ] Activestorm - Reports information about active named storms
 - [ ] Conus - Grabs conus animation for server region. Defaults to GeoColor, 120
 - [ ] ISS - Reports information about the ISS
+
+## TODO
+- Adding logging and investigate [tracing](https://docs.rs/tracing/latest/tracing/index.html)
+- Implement most of the commands at a base level
+- Complete documentation using [mdBook](https://github.com/rust-lang/mdBook)
 
 ## Getting Started
 TODO

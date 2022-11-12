@@ -1,8 +1,10 @@
-logging_level = "DEBUG"
+# Logging levels are in order of verbosity:
+#    Trace, Debug, Info, Warn, Error
+logging_level = "Debug"
 token_file = "token"
+sha_hash = ""
 
 [bot]
+name = "jardb"
 prefix = "$"
-
-[bot.message]
 listen_timeout = 3600
