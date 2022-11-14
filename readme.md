@@ -23,7 +23,7 @@ This bot serves to be a project for me to learn Rust. For no other purpose than 
 #### Moderation
 - [ ] Ban
 - [ ] Clear
-- [ ] Delete - Delete `N` messages
+- [x] Delete - Delete `N` messages
 - [ ] Hardkick - Kick and delete all messages by the user.
 - [ ] Kick
 - [ ] Mute
@@ -40,6 +40,7 @@ This bot serves to be a project for me to learn Rust. For no other purpose than 
 - [ ] weather
 #### Space
 - [ ] Activestorm - Reports information about active named storms
+- [ ] Apod - Astronomy Picture of the Day -> [https://api.nasa.gov/](https://api.nasa.gov/)
 - [ ] Conus - Grabs conus animation for server region. Defaults to GeoColor, 120
 - [ ] ISS - Reports information about the ISS
 

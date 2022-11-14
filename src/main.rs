@@ -10,7 +10,7 @@ use crate::commands::{
     admin::{register::*},
     fun::{coin::*, ping::*, roll::*, xkcd::*},
     info::{age::*},
-    moderation::{}
+    moderation::{clear::*, delete::*}
 };
 use crate::util::{
     data::*,
@@ -59,6 +59,7 @@ async fn main() {
         register(), // Admin
         coin(), ping(), roll(), xkcd(), // Fun
         age(), // Info
+        clear(), delete(), // Moderation
     ];
     let timeout = std::time::Duration::from_secs(config.bot.listen_timeout as u64);
 

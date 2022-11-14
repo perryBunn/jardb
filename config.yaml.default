@@ -1,4 +1,0 @@
-logging_level:  !!str DEBUG
-token_file:     !!str token
-listen_timeout:       3600
-prefix:         !!str $

@@ -1,9 +1,7 @@
 use crate::{Context, Error};
 use reqwest::{get, StatusCode};
 use serde_derive::{Deserialize, Serialize};
-use poise::serenity_prelude::builder::{CreateActionRow, CreateButton, CreateEmbed, CreateEmbedFooter, CreateMessage};
-use poise::serenity_prelude::CreateComponents;
-use poise::serenity_prelude::json;
+use poise::serenity_prelude::{ButtonStyle};
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Comic {
@@ -19,8 +17,8 @@ struct Comic {
 /// # Arguments
 /// * `ctx` - Context passed from the invoking message.
 #[poise::command(prefix_command, slash_command)]
-pub async fn xkcd(ctx: Context<'_>, arg: String) -> Result<(), Error> {
-    let comic_num = arg.parse::<u16>().unwrap_or(0);
+pub async fn xkcd(ctx: Context<'_>, arg: Option<u32>) -> Result<(), Error> {
+    let comic_num = arg.unwrap_or(0);
     let selected_comic = format!("https://xkcd.com/{comic_num}/info.0.json");
     let latest_comic = "https://xkcd.com/info.0.json";
 
@@ -35,27 +33,29 @@ pub async fn xkcd(ctx: Context<'_>, arg: String) -> Result<(), Error> {
     let page = format!("https://xkcd.com/{num}");
     let wiki = format!("https://explainxkcd.com/wiki/index.php/{num}");
 
-    ctx.send(|m| {
-        m.embed(|e| e
+    ctx.send(|msg| {
+        msg.embed(|embd| embd
             .title(&response.title)
             .color(0xACACAC)
             .description(&response.alt)
             .image(&response.img)
-            .footer(|f| f
+            .footer(|foot| foot
                 .text(format!("xkcd comic no. {num}"))
             )
+        );
+        msg.components(|comp| comp
+            .create_action_row(|act_row| act_row
+                .create_button(|btn_page| btn_page
+                    .style(ButtonStyle::Link)
+                    .url(page)
+                    .label("View image on xkcd"))
+                .create_button(|btn_wiki| btn_wiki
+                    .style(ButtonStyle::Link)
+                    .url(wiki)
+                    .label("View wiki")
+                )
+            )
         )
-        // m.components(|c| c
-        //     .create_action_row(|a| a
-        //         .create_button(|b| b
-        //             .url(page)
-        //             .label("View image on xkcd"))
-        //         .create_button(|b| b
-        //             .url(wiki)
-        //             .label("View wiki")
-        //         )
-        //     )
-        // )
     }).await?;
 
     Ok(())
