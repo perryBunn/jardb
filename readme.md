@@ -4,42 +4,39 @@ This bot serves to be a project for me to learn Rust. For no other purpose than 
 ## Features
 ### Commands
 #### Admin
-- [ ] Record - Records audio
-- [x] Register - Adds slash commands
-- [ ] Stenographer - Speech to Text
+- [ ] Record `channel`
+- [x] Register
+- [ ] Stenographer `channel`
 #### Fun
-- [ ] AddReact - For some regex string, react
+- [ ] AddReact `regex` `message`
 - [x] Coin
 - [x] Ping
 - [ ] Poll
-- [x] Roll
-- [x] XKCD
+- [x] Roll `number`
+- [x] XKCD `number`
 #### Info
 - [ ] About 
-- [x] Age -> User
+- [x] Age
 - [ ] Author
 - [ ] Guild
 - [ ] User
 #### Moderation
-- [ ] Ban
-- [ ] Clear
-- [x] Delete - Delete `N` messages
+- [ ] Ban `user` `duration`
+- [x] Delete `# of messages`
 - [ ] Hardkick - Kick and delete all messages by the user.
-- [ ] Kick
-- [ ] Mute
-- [ ] Deafen
-- [ ] Purge
-- [ ] Tempban
-- [ ] Tempmute
-- [ ] Timeout
-- [ ] Slowmode
-- [ ] Undeafen
-- [ ] Unmute
-- [ ] Warn
+- [ ] Kick `user`
+- [ ] Mute `user`
+- [ ] Deafen `user`
+- [ ] Purge `user`|`channel`
+- [ ] Timeout `user`
+- [ ] Slowmode `user`|`channel`
+- [ ] Undeafen `user`
+- [ ] Unmute `user`
+- [ ] Warn `user` `message`
 #### Regional
-- [ ] weather
+- [ ] weather `locatoin`
 #### Space
-- [ ] Activestorm - Reports information about active named storms
+- [ ] Activestorm `storm` - Reports information about active named storms
 - [ ] Apod - Astronomy Picture of the Day -> [https://api.nasa.gov/](https://api.nasa.gov/)
 - [ ] Conus - Grabs conus animation for server region. Defaults to GeoColor, 120
 - [ ] ISS - Reports information about the ISS
