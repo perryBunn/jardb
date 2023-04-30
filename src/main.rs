@@ -9,7 +9,7 @@ use poise::serenity_prelude as serenity;
 use crate::commands::{
     admin::{register::*},
     fun::{coin::*, ping::*, roll::*, xkcd::*},
-    info::{age::*},
+    info::{about::*, age::*, user::*},
     moderation::{clear::*, delete::*}
 };
 use crate::util::{
@@ -58,7 +58,7 @@ async fn main() {
     let command_list = vec![
         register(), // Admin
         coin(), ping(), roll(), xkcd(), // Fun
-        age(), // Info
+        about(), age(), user(), // Info
         clear(), delete(), // Moderation
     ];
     let timeout = std::time::Duration::from_secs(config.bot.listen_timeout as u64);

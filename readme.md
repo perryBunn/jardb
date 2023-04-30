@@ -15,7 +15,7 @@ This bot serves to be a project for me to learn Rust. For no other purpose than 
 - [x] Roll `number`
 - [x] XKCD `number`
 #### Info
-- [ ] About 
+- [X] About 
 - [x] Age
 - [ ] Author
 - [ ] Guild

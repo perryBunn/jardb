@@ -16,5 +16,6 @@ pub async fn clear(ctx: Context<'_>) -> Result<(), Error> {
     let channel_copy_name = format!("{}_copy", origin_guild_channel.name);
     _clone_channel(ctx, guild, origin_guild_channel, channel_copy_name).await?;
 
+
     Ok(())
 }

@@ -12,7 +12,7 @@ pub async fn clone(ctx: Context<'_>) -> Result<(), Error> {
     let guild = ctx.guild().unwrap();
     let guild_channels = guild.channels(ctx.discord()).await.unwrap();
     let origin_guild_channel: &GuildChannel = guild_channels.get(&origin_channel_id).unwrap();
-    let channel_copy_name = format!("{}_copy", origin_guild_channel.clone().name);
+    let channel_copy_name = format!("{}-copy", origin_guild_channel.clone().name);
     _clone_channel(ctx, guild, origin_guild_channel, channel_copy_name.clone()).await?;
     let response= format!("#{}", channel_copy_name);
     ctx.say(response).await?;

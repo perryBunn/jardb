@@ -8,7 +8,6 @@ pub struct Data {}
 pub struct Config {
     pub bot: BotConfig,
     pub logging_level: LevelFilter,
-    pub sha_hash: String,
     pub(crate) token_file: String,
 }
 
