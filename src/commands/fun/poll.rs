@@ -1,6 +1,7 @@
 extern crate chrono;
 
 use std::future::Future;
+use std::ops::Range;
 use chrono::offset::Utc;
 use chrono::DateTime;
 use std::time::{Duration, SystemTime};
@@ -30,22 +31,24 @@ pub async fn poll(ctx: Context<'_>, #[description = "Question"] question: Option
                 .timeout(Duration::from_secs(30)).await.unwrap().content.clone();
     }
 
-    ctx.say("How many options are there?");
+    ctx.say("How many options are there?").await?;
     let num_options = ctx.author()
             .await_reply(&ctx.discord().shard)
                 .channel_id(ctx.channel_id())
                 .author_id(ctx.author().id)
                 .timeout(Duration::from_secs(30)).await.unwrap();
 
-    let answer_1 = "";
-    let answer_2 = "";
+    let end = num_options.content.as_str().parse::<i32>().unwrap();
+    let mut i = 0;
+    while i < end {
+        // get fields to add to embed
+        i = i + 1
+    }
 
     ctx.send(|msg| {
         msg.embed(|embd| embd
             .color(0xACACAC)
             .description(question)
-            .field("1", answer_1, false)
-            .field("2", answer_2, false)
             .title("Poll")
         );
         msg.components(|comp| comp
